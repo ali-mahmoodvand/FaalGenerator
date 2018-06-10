@@ -16,10 +16,16 @@ module.exports= {
             }
             for(i=0;i<req.body.versions.length;i++){
                 job=(nextVersion,previusVersion,callback)=>{
+                    console.log('start scanning');
+
                     scanner.scanDirAndReplace(appPath,previusVersion,nextVersion,prename);
+                    console.log('finish scanning');
+                    console.log('start build');
+
                     let cmd = appPath + buildcmd;
                     exec(buildcmd, option,
                         function (err, data, stderr) {
+                            console.log('finish build');
                             if (!err) {
                                 let nextfile = rootDir + "/apks/" + dateformat(new Date, "yyyy-mm-dd=HH:MM:ss").toString() + " " +
                                     prename + (nextVersion).toString()+"_"+req.body.version + ".apk";
@@ -72,11 +78,15 @@ module.exports= {
     },
     generate:(req,res)=>{
         ver = parseInt(fs.readFileSync(verpath, {encoding: 'utf-8'}));
+        console.log('start scanning');
         scanner.scanDirAndReplace(appPath,ver,ver+1,prename);
+        console.log('finish scanning');
         let cmd = appPath + buildcmd;
         option.cwd=appPath;
+        console.log('start build');
         exec(buildcmd, option,
             function (err, data, stderr) {
+                console.log('finis build');
                 console.dir(err);
                 // console.dir(data);
                 console.dir(stderr);
