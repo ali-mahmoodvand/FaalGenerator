@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+<%- msg %>
+<div  id="msg">
+</div>
+<Form  method="post">
+<div id="container">
+</div>
+    <input type="number" name="version" required placeholder="version" value="3">
+    <button>update apks</button>
+</Form>
+</body>
+<script>
+
+    var version =parseInt("<%= version %>");
+//    var msg="<%= msg %>";
+//    document.getElementById('msg').innerHTML=msg.trim('"');
+    html='';
+    for(i=102;i<=version;i++){
+        html+='<div><input name="versions" type="checkbox" value="'+i+'" ><span>Fall'+i+'</span></div>'
+    }
+    document.getElementById('container').innerHTML=html;
+</script>
+</html>

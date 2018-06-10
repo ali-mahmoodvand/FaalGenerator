@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<br/>
+<br/><br/>
+<br/>
+<Form action="" method="post">
+    <select  id="downloader" name="downloader">
+    </select>
+    <br/>
+    <br/>
+    <button>Generate new apk</button>
+</Form>
+</body>
+<script>
+    html='';
+    for(let i=1;i<=6;i++){
+        html+='<option value="downloader'+i+'">downloader'+i+'</option>';
+    }
+    document.getElementById('downloader').innerHTML=html;
+</script>
+</html>
