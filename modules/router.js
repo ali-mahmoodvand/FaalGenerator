@@ -78,7 +78,7 @@ module.exports= {
     },
     generate:(req,res)=>{
         ver = parseInt(fs.readFileSync(verpath, {encoding: 'utf-8'}));
-        console.log('start scanning');
+        console.log('start scanning',appPath,ver,ver+1,prename);
         scanner.scanDirAndReplace(appPath,ver,ver+1,prename);
         console.log('finish scanning');
         let cmd = appPath + buildcmd;

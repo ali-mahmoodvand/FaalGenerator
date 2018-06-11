@@ -22,7 +22,7 @@ module.exports={
                 } catch (err) {
                     // console.log(err.message,nexttarget);
                 }
-                if (stat && stat.isDirectory()) {
+                if (stat && stat.isDirectory()&&dir[i]!="build") {
                     scanner.scanDirAndReplace(nexttarget + "/",version,nextVersion,preName);
                 }
                 else if ((
