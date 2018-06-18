@@ -24,6 +24,12 @@ if (cluster.isWorker) {
     app.get('/', function (req, res) {
         res.render("app.html", {});
     })
+    app.get('/file', function (req, res) {
+        res.render("file.html", {});
+    })
+    app.post('/file', function (req, res) {
+        router.file(req,res);
+    });
     app.get('/downloader', function (req, res) {
         res.render("downloader.html", {});
     })
@@ -31,13 +37,15 @@ if (cluster.isWorker) {
         res.render("video.html", {});
     })
     app.get('/update', function (req, res) {
+        // console.log(parseInt(fs.readFileSync(verpath, {encoding: 'utf-8'})));
+        // console.log( verpath);
         res.render( "update.html",{
             version:parseInt(fs.readFileSync(verpath, {encoding: 'utf-8'})),
             msg:''
         });
     })
     app.post('/update', function (req, res) {
-        router.update(req,res);
+        router.update2(req,res);
     })
     app.post('/downloader', function (req, res) {
         router.downloader(req,res);

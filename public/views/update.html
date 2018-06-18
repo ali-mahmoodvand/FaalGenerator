@@ -11,10 +11,12 @@
 <div  id="msg">
 </div>
 <Form  method="post">
+    <input type="number" name="version" required placeholder="version" value="4">
+    <button  >update apks</button>
 <div id="container">
 </div>
-    <input type="number" name="version" required placeholder="version" value="3">
-    <button>update apks</button>
+
+
 </Form>
 </body>
 <script>
@@ -23,7 +25,7 @@
 //    var msg="<%= msg %>";
 //    document.getElementById('msg').innerHTML=msg.trim('"');
     html='';
-    for(i=102;i<=version;i++){
+    for(i=118;i<=version;i++){
         html+='<div><input name="versions" type="checkbox" value="'+i+'" ><span>Fall'+i+'</span></div>'
     }
     document.getElementById('container').innerHTML=html;
